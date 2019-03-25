@@ -5,6 +5,8 @@ package FunctionLayer;
  *
  * @author rh
  */
+
+//virker ikke 
 public class Calculator {
 
     public static House createPartList(House house) {
@@ -14,7 +16,30 @@ public class Calculator {
         }
         return house;
     }
-    private static Brick createLayer(int length, int width, boolean even) {
+
+    private static BrickSides createSide2(int prikker) {
+        int fourXtwo = prikker / 4; 
+        int twoXtwo = (prikker % 4) / 2;
+        int oneXtwo = ((prikker % 4) - twoXtwo * 2);
+        BrickSides side = new BrickSides();
+        side.setBricks(" 4X2", fourXtwo);
+        side.setBricks(" 2X2", twoXtwo);
+        side.setBricks(" 1X2", oneXtwo);
+        return side;
+    }
+    
+    
+    private static BrickSides createSide(int prikker) {
+        int fourXtwo = prikker / 4; 
+        int twoXtwo = (prikker % 4) / 2;
+        int oneXtwo = ((prikker % 4) - twoXtwo * 2);
+        BrickSides side = new BrickSides();
+        side.setBricks(" 4X2", fourXtwo);
+        side.setBricks(" 2X1", twoXtwo);
+        side.setBricks(" 1X1", oneXtwo);
+        return side;
+    }
+        private static Brick createLayer(int length, int width, boolean even) {
         Brick layers = new Brick();
         BrickSides s1ands3;
         BrickSides s1and4;
@@ -30,26 +55,5 @@ public class Calculator {
         return layers ;
     }
 
-    private static BrickSides createSide(int prikker) {
-        int fourXtwo = prikker / 4; 
-        int twoXtwo = (prikker % 4) / 2;
-        int oneXtwo = ((prikker % 4) - twoXtwo * 2);
-        BrickSides side = new BrickSides();
-        side.setBricks(" 4X2", fourXtwo);
-        side.setBricks(" 2X1", twoXtwo);
-        side.setBricks(" 1X1", oneXtwo);
-        return side;
-    }
-    
-    private static BrickSides createSide2(int prikker) {
-        int fourXtwo = prikker / 4; 
-        int twoXtwo = (prikker % 4) / 2;
-        int oneXtwo = ((prikker % 4) - twoXtwo * 2);
-        BrickSides side = new BrickSides();
-        side.setBricks(" 4X2", fourXtwo);
-        side.setBricks(" 2X2", twoXtwo);
-        side.setBricks(" 1X2", oneXtwo);
-        return side;
-    }
 
 }

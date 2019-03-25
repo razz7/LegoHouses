@@ -17,11 +17,11 @@ public class Order {
         this.status = status;
     }
 
-    public Order(int order_id, int length, int width, int height, User user, int status) {
+    public Order(int order_id, int length, int width, int heigth, User user, int status) {
         this.order_id = order_id;
         this.length = length;
         this.width = width;
-        this.heigth = height;
+        this.heigth = heigth;
         this.user = user;
         this.status = status;
     }

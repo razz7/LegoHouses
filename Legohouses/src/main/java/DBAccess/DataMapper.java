@@ -39,7 +39,7 @@ public class DataMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO orders (user_id, length, width, "
-                    + "height, shipped) VALUES (?, ?, ?, ?, ?)";
+                    + "heigth, status) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, user.getId());
             ps.setInt(2, order.getLength());
@@ -97,9 +97,9 @@ public class DataMapper {
                 int order_id = rs.getInt("order_id");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
-                int height = rs.getInt("heigth");
+                int heigth = rs.getInt("heigth");
                 int status = rs.getInt("status");
-                orders.add(new Order(order_id, length, width, height, status));
+                orders.add(new Order(order_id, length, width, heigth, status));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new BuildException(ex.getMessage());
